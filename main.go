@@ -1,25 +1,40 @@
 package main
 
-import (
-	"fmt"
-	"math"
-)
+import "fmt"
 
-type Vertex struct {
-	X, Y float64
+type StringSlice []string
+
+func (s StringSlice) Len() int {
+	return len(s)
 }
 
-func Abs(v *Vertex) float64 {
-	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+type IntSlice []int
+
+func (i IntSlice) Len() int {
+	return len(i)
 }
 
-func Scale(v Vertex, f float64) {
-	v.X = v.X * f
-	v.Y = v.Y * f
+type Slice interface {
+	Len() int
+}
+
+type FloatSlice []float64
+
+func (f FloatSlice) Len() int {
+	return len(f)
+}
+
+func print(s Slice) {
+	for i := 0; i < s.Len(); i++ {
+		fmt.Println(s)
+	}
 }
 
 func main() {
-	v := Vertex{3, 4}
-	Scale(v, 10)
-	fmt.Println(Abs(&v))
+	s := StringSlice{"foo", "bar", "fuga", "hoge", "piyo"}
+	print(s)
+	i := IntSlice{1, 2, 3, 4, 5}
+	print(i)
+	f := FloatSlice{1, 2, 3, 4, 5}
+	print(f)
 }
