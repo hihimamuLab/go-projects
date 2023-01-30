@@ -30,6 +30,9 @@ func main() {
 
 	// 条件分岐switch文
 	fmt.Println(game_win(1))
+
+	// 繰り返しfor文
+	fmt.Println(for_result(10))
 }
 
 // 条件分岐処理関数
@@ -50,4 +53,13 @@ func game_win(score int) string {
 		return "負"
 	}
 	return "1か0を代入してください"
+}
+
+// 繰り返し処理for文
+func for_result(score int) string {
+	for i := 0; i < score; i++ {
+		number := i + 1
+		fmt.Println(number)
+	}
+	return "処理終了"
 }
