@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"math"
+	"math/rand"
 )
 
 func main() {
@@ -33,6 +35,12 @@ func main() {
 
 	// 繰り返しfor文
 	fmt.Println(for_result(10))
+
+	// 平方根
+	fmt.Println("Now you have %g problems.", math.Sqrt(7))
+
+	// ランダム数値生成
+	fmt.Println("My favorite number is", rand.Intn(10))
 }
 
 // 条件分岐処理関数
